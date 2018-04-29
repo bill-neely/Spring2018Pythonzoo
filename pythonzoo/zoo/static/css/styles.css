@@ -1,3 +1,117 @@
-h1 {
-	color: red;
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+.header {
+	width: 100%;
+	border-bottom: 2px solid black;
+	margin: auto auto 5px auto;
+}
+
+.header div {
+	display: inline-block;
+}
+
+.logo {
+	width: 10%;
+	text-align: center;
+	margin: auto;
+}
+
+.logo img {
+	width: 60px;
+}
+
+.fb, .instagram {
+	width: 18px;
+}
+
+.menu {
+	margin: auto;
+	font-size: 1.2em;
+}
+
+.menu ul {
+    list-style-type: none;
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.menu li a {
+    text-align: center;
+  	padding: 0px 10px;
+}
+
+.menu li a:hover {
+    bottom-border: 1px solid #111111;
+}
+
+.content {
+	width: 85%;
+	margin: auto;
+}
+
+.zoolistItem {
+	margin: 20px auto;
+	width: 100%;
+}
+.zoolistItem img {
+	width: 100px;
+	margin-right: 20px;
+}
+
+.zooWrapper {
+	width: 85%;
+	margin: auto;
+	display: table-row;
+}
+.zooSummary {
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0px 20px;
+}
+.zooSummary img {
+	width: 250px;
+}
+.zooSummary label {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+.exhibitWrapper {
+	width: 80%;
+	margin: auto;
+}
+.exhibitRow {
+	display: table-row;
+}
+
+.exhibitCell {
+	display: table-cell;
+	margin: auto;
+	width: 30%;
+	text-align: center;
+}
+.animalListItem {
+	display: block!important;
+	margin: 20px;
+}
+
+.animalListItem img {
+	width: 200px;
+}
+
+.animalWrapper {
+	width: 80%;
+	margin: auto;
+}
+.animalWrapper .sectionHeader {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+.animalWrapper img {
+	width: 300px;
 }

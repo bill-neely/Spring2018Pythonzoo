@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+{% load static %}
+<h1 class='zooName'>{{ zoo.name }}</h1>
+<div class='zooWrapper'>
+  <div class='zooSummary'>
+    <img src="{% static zoo.logoFileName %}">
+  </div>
+  <div class='zooSummary'>
+    <label>There are {{ zoo.exhibit_set.all.count }} exhibits:</label>
+    <br>
+    {% for exhibit in zoo.exhibit_set.all %}
+      <div class='exhibitlistItem'>
+        <a href='{{ exhibit.get_absolute_url }}'> {{ exhibit.name }}</a> has {{ exhibit.getNumberOfAnimals }} Animals
+      </div>
+    {% endfor %}
+  </div>
+<div>
+{% endblock %}

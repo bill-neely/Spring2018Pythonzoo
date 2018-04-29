@@ -1,0 +1,96 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+{% load static %}
+<h1 class='exhibitName'>{{ exhibit.name }} at <a href='{{ exhibit.zoo.get_absolute_url }}'>{{ exhibit.zoo.name }}</a></h1>
+<div class='exhibitWrapper'>
+  <div class='exhibitRow'>
+    <div class='exhibitCell'>
+      Northwewst to:<br>
+      {% for neighbor in exhibit.fromExhibit.all %}
+        {% if neighbor.direction == 'nw' %}
+          <a href='{{ neighbor.toExhibit.get_absolute_url }}'> {{ neighbor.toExhibit.name }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class='exhibitCell'>
+      North to:<br>
+      {% for neighbor in exhibit.fromExhibit.all %}
+        {% if neighbor.direction == 'n' %}
+          <a href='{{ neighbor.toExhibit.get_absolute_url }}'> {{ neighbor.toExhibit.name }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class='exhibitCell'>
+      Northeast to:<br>
+      {% for neighbor in exhibit.fromExhibit.all %}
+        {% if neighbor.direction == 'ne' %}
+          <a href='{{ neighbor.toExhibit.get_absolute_url }}'> {{ neighbor.toExhibit.name }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class='exhibitRow'>
+    <div class='exhibitCell'>
+      West to:<br>
+      {% for neighbor in exhibit.fromExhibit.all %}
+        {% if neighbor.direction == 'w' %}
+          <a href='{{ neighbor.toExhibit.get_absolute_url }}'> {{ neighbor.toExhibit.name }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class='exhibitCell'>
+      {% if exhibit.animal_set.all %}
+        {% for animal in exhibit.animal_set.all %}
+          <div class='animalListItem'>
+            <a href='{{ animal.get_absolute_url }}'>
+              <img src="{% static animal.imageFileName %}">
+              <br>
+              {{ animal.name }}
+            </a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class='animalListItem'>
+          <h4>There are no animals here.</h4>
+          <img src="{% static 'images/empty.jpg' %}">
+        </div>
+      {% endif %}
+    </div>
+    <div class='exhibitCell'>
+      East to:<br>
+      {% for neighbor in exhibit.fromExhibit.all %}
+        {% if neighbor.direction == 'e' %}
+          <a href='{{ neighbor.toExhibit.get_absolute_url }}'> {{ neighbor.toExhibit.name }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class='exhibitRow'>
+    <div class='exhibitCell'>
+      Southwest to:<br>
+      {% for neighbor in exhibit.fromExhibit.all %}
+        {% if neighbor.direction == 'sw' %}
+          <a href='{{ neighbor.toExhibit.get_absolute_url }}'> {{ neighbor.toExhibit.name }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class='exhibitCell'>
+      South to:<br>
+      {% for neighbor in exhibit.fromExhibit.all %}
+        {% if neighbor.direction == 's' %}
+          <a href='{{ neighbor.toExhibit.get_absolute_url }}'> {{ neighbor.toExhibit.name }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class='exhibitCell'>
+      Southeast to:<br>
+      {% for neighbor in exhibit.fromExhibit.all %}
+        {% if neighbor.direction == 'se' %}
+          <a href='{{ neighbor.toExhibit.get_absolute_url }}'> {{ neighbor.toExhibit.name }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+<div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+{% load static %}
+<div class='animalWrapper'>
+  <h1 class='animalName'>{{ animal.name }} in <a href='{{ animal.exhibit.get_absolute_url }}'>{{ animal.exhibit.name }}</a> at <a href='{{ animal.exhibit.zoo.get_absolute_url }}'>{{ animal.exhibit.zoo.name }}</a></h1>
+  <p class='sectionHeader'>Sound</p>
+  {% if animal.soundFileName %}
+    <audio controls>
+      <source src="{% static animal.soundFileName %}" type="audio/mpeg">
+      </audio>
+  {% else %}
+    <p>No sound recording available</p>
+  {% endif %}
+  <p><img src="{% static animal.imageFileName %}"></p>
+  <p class='sectionHeader'>Habitat</p>
+  <p>{{ animal.habitatDescription }}</p>
+  <p class='sectionHeader'>Diet</p>
+  <p>{{ animal.dietDescription }}</p>
+<div>
+{% endblock %}

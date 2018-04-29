@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+{% if zoo_list %}
+  {% load static %}
+  <h1 class="zoolist">There are {{ zoo_list.count }} zoos to choose from:</h1>
+  <div class='zoolist'>
+    {% for zoo in zoo_list %}
+    <div class='zoolistItem'>
+      <a href='{{ zoo.get_absolute_url }}'>
+        <img src="{% static zoo.logoFileName %}">
+        {{zoo.name}}
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p>There are no zoos available.</p>
+{% endif %}
+
+{% endblock %}
